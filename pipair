@@ -1,0 +1,4 @@
+#!/bin/bash
+
+opt -print-callgraph 2>emma_call_graph >/dev/null $1
+../emma_watson emma_call_graph $2 $3
