@@ -1,0 +1,126 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper, hmargin=0.75in, vmargin=0.75in]{geometry}
+\usepackage{float}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\lstset{basicstyle=\footnotesize\ttfamily}
+
+\usetikzlibrary{arrows,automata,shapes}
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=2em]
+
+\title{one of: ECE453/CS447/ECE653/CS647/SE465-001/SE465-002\\Assignment 3}
+\author{Your Name (your student number), {\tt your email}}
+\date{March 30, 2015}
+
+\begin{document}
+
+\maketitle
+
+\section*{Question 1}
+\begin{center}
+\begin{tabular}{|c|c|c|c||c||c|c|c|}
+\hline
+   & a & b & c & p & $p_a = b \vee c$ & $p_b = a \vee c$ & $p_c = a \vee b$ \\ \hline
+1 & T & T & T & T   & T & T & T \\ \hline
+2 & T & T & F & T   & T & T & T \\ \hline
+3 & T & F & T & T   & T & T & T \\ \hline
+4 & T & F & F & F   & F & T & T \\ \hline
+5 & F & T & T & T   & T & T & T \\ \hline
+6 & F & T & F & F   & T & F & T \\ \hline
+7 & F & F & T & F   & T & T & F \\ \hline
+8 & F & F & F & F   & F & F & F \\ \hline
+\end{tabular}
+\end{center}
+
+\paragraph{GACC.} Pairs of rows that satisfy GACC:
+
+a: \{ 1, 2, 3 \} X \{ 5, 6, 7 \}
+
+b: \{ 1, 2, 5 \} X \{ 3, 4, 7 \}
+
+c: \{ 1, 3, 5 \} X \{ 2, 4, 6 \}
+ 
+\paragraph{CACC.} Pairs of rows that satisfy CACC:
+
+a: \{ 1, 2, 3, 5 \} X \{ 6, 7 \}
+
+b: \{ 1, 2, 3, 5 \} X \{ 4, 7 \}
+
+c: \{ 1, 2, 3, 5 \} X \{ 4, 6 \}  
+
+\paragraph{RACC.} Pairs of rows that satisfy RACC: 
+
+a: ( 2, 6 ), ( 3, 7 )
+
+b: ( 2, 4 ), ( 5, 7 )
+
+c: ( 3, 4 ), ( 5, 6 )
+
+
+\section*{Question 2}
+\paragraph{size of s2, completeness.} 
+It does not satisfy completeness because a null value of s2 does not block to any block.
+
+\paragraph{size of s2, disjointness.} 
+It satisfies disjointness, because any value of s2 that is even in length cannot be also odd in length.
+
+\paragraph{relation, completeness.} 
+It satisfies completeness, because by definition you cannot have a pair of values A and B that A is less than B and B is less than A. It's just impossible mathematically.
+
+\paragraph{relation, disjointness.}
+It does not satisfy disjointness because if s1 is equal to s2 in size, then this pair satisfies both blocks.
+
+
+\paragraph{Base choice TRs.}
+There will be 3 test cases in the TR.
+Let's make base choice s2 is even in length and s1 does not have greater size than s2.
+The other two test cases will be:
+
+(s2 is odd in length, s1 does not have greater size than s2)
+
+(s2 is even in length, s1 does have greater size than s2)
+
+\section*{Question 3}
+\paragraph{Mozilla bug.}
+The problem with title is that it is way too ambiguous. Multiple recipients mean very little without knowing the context that it has to do with emails.
+
+There is basically no description on the bug either. No steps to reproduce in the description. And other than the program name (seamonkey), we have very little clue in what this bug is about. No buildID or screenshot is attached. We have no clue what version of seamonkey this bug is found in.
+
+Four problems (as described above):
+\begin{itemize}
+\item Title is ambiguous
+\item No buildID for the version of SeaMonkey the bug is found in
+\item No screenshot to show what the bug looks like
+\item No reproducible steps for the bug
+\end{itemize}
+
+\paragraph{HashTable bug report.}
+
+\begin{verbatim}
+Title: Java hash table does not update value for an existing key.
+
+Keywords: HashTable, put, duplicate key
+
+Summary:
+
+  Input to reproduce this bug:
+    put 528 100
+    put 528 101
+    
+  We will not get the new value of 101 associated with the key 528.
+    
+  The reason for this is because once the hash table finds an existing key,
+  it returns the existing value right away instead of updating that value
+  with the new value user has passed in.
+
+Component: HashTable
+
+Date Reported: March 25, 2015
+
+\end{verbatim}
+\end{document}
